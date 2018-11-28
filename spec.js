@@ -28,8 +28,7 @@ describe("angular.js homepage test", function () {
         var span = element(by.cssContainingText('.pln', 'npm install'));
 
         span.isPresent().then( function() { // wait load elements 
-            expect(span.getText()).toEqual('npm install');
-           
+            expect(span.getText()).toEqual('npm install');          
         });
 
     });
@@ -68,6 +67,19 @@ describe("angular.js homepage test", function () {
         browser.get('https://angularjs.org/');
 
         expect(browser.getCurrentUrl()).toEqual('https://angularjs.org/');
+    });
+
+    //checkbox homework
+    it('Check checkbox status', function() {
+        var liFirst = element.all(by.css('.unstyled li')).first();
+        var liLast = element.all(by.css('.unstyled li')).last();
+
+        var inputLi1 = liFirst.element(by.tagName('input'));
+        var inputLi2 = liLast.element(by.tagName('input'));
+
+        expect(inputLi1.isSelected()).toBe(true);
+        expect(inputLi2.isSelected()).toBe(false);
+
     });
 
 });
